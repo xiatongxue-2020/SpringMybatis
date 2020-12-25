@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.zzc.dao.AdminDao">
+
+
+
+    <resultMap id="resultMap" type="com.zzc.entity.Admin">
+        <result property="age" column="age"/>
+        <result property="id" column="id"/>
+        <result property="username" column="name"/>
+    </resultMap>
+    <select id="findAll" resultMap="resultMap">
+          select * from Admin
+    </select>
+
+
+</mapper>

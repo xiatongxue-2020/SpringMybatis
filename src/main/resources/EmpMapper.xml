@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.zzc.dao.EmpDao">
+<!--    sql必须和EMPdao的-->
+<!--    #与$ 号的区别：#号可以防止SQL注入，String类型的参数￥号可以注入攻击-->
+    <select id="findAll" resultType="com.zzc.entity.Emp">
+        select * from emp
+    </select>
+    <select id="findById" resultType="com.zzc.entity.Emp">
+        select * from emp where id=#{id}
+    </select>
+    <select id="findByName" resultType="com.zzc.entity.Emp">
+        select * from emp where name = #{name}
+    </select>
+
+    <insert id="insert">
+        insert into emp(id,name,job,sal,deptno) values (null ,#{name},#{job},#{sal},#{deptno})
+    </insert>
+
+    <insert id="insertReturnId"  useGeneratedKeys="true" keyProperty="id">
+         insert into emp(id,name,job,sal,deptno) values (null ,#{name},#{job},#{sal},#{deptno})
+    </insert>
+
+    <delete id="delete">
+        delete from emp where id=#{id}
+    </delete>
+
+    <update id="update">
+        update emp set name=#{name},job=#{job},sal=#{sal},deptno=#{deptno} where id=#{id}
+    </update>
+
+</mapper>
